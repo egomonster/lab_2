@@ -16,7 +16,7 @@ int** createMx(int rows, int columns, int min, int max){
             return NULL;
         }
     }
-    return 0;
+    return Mx;
 }
 
 void freeMx(int **Mx, int rows){
@@ -26,8 +26,13 @@ void freeMx(int **Mx, int rows){
     free(Mx);
 }
 
-void printMx(){
-
+void printMx(int **Mx, int rows, int columns){
+    for(int i=0; i<rows; i++){
+        for(int j=0; j<columns; j++){
+            printf("%4d",Mx[i][j]);
+        }
+        printf("\n");
+    }
 }
 
 int main()
