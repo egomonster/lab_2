@@ -1,8 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int** createMx(){
-
+int** createMx(int rows, int columns, int min, int max){
+    int **Mx=(int**)calloc(rows, sizeof(int*));
+    if(Mx==NULL){
+        return NULL;
+    }
+    for(int i=0; i<rows; i++){
+        Mx[i]=(int*)calloc(columns, sizeof(int));
+        if(Mx[i]==NULL){
+            for(int j=0; j<i; j++){
+                free(Mx[j]);
+            }
+            free(Mx);
+            return NULL;
+        }
+    }
+    return 0;
 }
 
 void freeMx(){
