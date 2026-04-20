@@ -19,8 +19,11 @@ int** createMx(int rows, int columns, int min, int max){
     return 0;
 }
 
-void freeMx(){
-
+void freeMx(int **Mx, int rows){
+    for(int i=0; i<rows; i++){
+        free(Mx[i]);
+    }
+    free(Mx);
 }
 
 void printMx(){
