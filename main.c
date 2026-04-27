@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int** createMx(int rows, int columns, int min, int max){
     int **Mx=(int**)calloc(rows, sizeof(int*));
@@ -14,6 +15,11 @@ int** createMx(int rows, int columns, int min, int max){
             }
             free(Mx);
             return NULL;
+        }
+    }
+    for(int i=0; i<rows; i++){
+        for(int j=0; j<columns; j++){
+            Mx[i][j]=min+rand()%(max-min+1);
         }
     }
     return Mx;
@@ -37,6 +43,7 @@ void printMx(int **Mx, int rows, int columns){
 
 int main()
 {
+    srand(time(NULL));
     int rows=3, columns=4, min=1, max=9;
     int **Mx=createMx(rows, columns, min, max);
     printMx(Mx,  rows, columns);
